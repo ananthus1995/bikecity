@@ -1,0 +1,77 @@
+{%extends 'base.html'%}
+
+{%block body_block%}
+
+
+
+
+
+                    <!-- Page Heading -->
+
+
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Bike List</h6>
+
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                    <tr>
+                                        <th>id</th>
+                                        <th>name</th>
+                                        <th>model year</th>
+                                        <th>manufactuer</th>
+                                        <th>price</th>
+                                        <th>milage</th>
+                                        <th>colour</th>
+                                        <th>actions</th>
+                                    </tr>
+                                    </thead>
+
+                                    <tbody>
+                                    {%for bike in bikes%}
+                                        <tr>
+                                            <td>{{bike.id}}</td>
+                                            <td>{{bike.bikename}}</td>
+                                            <td>{{bike.bike_model}}</td>
+                                            <td>{{bike.manufacturer}}</td>
+                                            <td>{{bike.price}}</td>
+                                            <td>{{bike.milage}}</td>
+                                            <td>{{bike.colour}}</td>
+                                            <td><a href="{%url 'bikeview' bike.id%}" class="btn btn-success btn-icon-split">
+                                              <span class="icon text-white-50">
+                                            <i class="fas fa-eye"></i>
+                                               </span>
+<!--                                             <span class="text">View</span>-->
+                                            </a>
+                                                <a href="{%url 'edit_bike' bike.id%}" class="btn btn-warning btn-icon-split">
+                                              <span class="icon text-white-50">
+                                            <i class="fas fa-pen"></i>
+                                               </span>
+<!--                                             <span class="text">Edit</span>-->
+                                            </a>
+
+                                                <a href="{%url 'remove_bike' bike.id%}" class="btn btn-danger btn-icon-split">
+                                              <span class="icon text-white-50">
+                                            <i class="fas fa-trash"></i>
+                                               </span>
+<!--                                             <span class="text">Remove</span>-->
+                                            </a>
+
+                                            </td>
+
+
+                                        </tr>
+                                         {%endfor%}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+{%endblock%}
